@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rifts — Edition 03</title>
+    <meta name="description" content="Own your website. A friendly micro-server for WordPress businesses." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500&f[]=satoshi@900,700,500,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles-v3.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body data-page="home" data-variant="v3">
+    <header class="site-nav">
+      <div class="nav-pill">
+        <a class="brand" href="#top">
+          <span class="dot"></span>
+          <span class="wordmark">Rifts</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#why">Why</a>
+          <a href="#how">How it works</a>
+          <a href="#calc">Calculator</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="nav-cta" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="hero-text">
+            <span class="hero-eyebrow">Now shipping · Mark 1</span>
+            <h1>
+              Own your website.
+              <span class="gray">Stop renting hosting.</span>
+            </h1>
+            <p class="lede">
+              A plug-and-play micro server for WordPress businesses that want local speed,
+              Cloudflare tunneling, and one-time ownership instead of another monthly hosting bill.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">
+                Book a Call <span class="arrow">→</span>
+              </a>
+              <a class="btn-secondary" href="#calc">Check my hosting costs</a>
+            </div>
+          </div>
+
+          <div class="hero-figure">
+            <div class="figure-bg"></div>
+            <div class="figure-ring"></div>
+            <div class="model-stage">
+              <canvas id="modelCanvas"></canvas>
+              <div class="model-status" id="modelStatus">Loading model</div>
+            </div>
+            <span class="float-tag tag-1"><span class="material-symbols-outlined">power</span> Plug &amp; play</span>
+            <span class="float-tag tag-2"><span class="material-symbols-outlined">bolt</span> Local speed</span>
+            <span class="float-tag tag-3"><span class="material-symbols-outlined">verified</span> WordPress ready</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="why">
+        <div class="section-head">
+          <span class="eyebrow">Why Rifts Mark 1</span>
+          <h2>Three reasons to own your hosting.</h2>
+          <p>The Mark 1 swaps a monthly bill for a piece of hardware you actually own — fast, simple, and yours.</p>
+        </div>
+
+        <div class="props">
+          <article class="prop">
+            <div class="prop-icon"><span class="material-symbols-outlined">savings</span></div>
+            <h3>True ownership</h3>
+            <p>Pay once, keep it forever. End the cycle of monthly hosting fees and the slow drip that eats a small business margin.</p>
+          </article>
+          <article class="prop">
+            <div class="prop-icon"><span class="material-symbols-outlined">electric_bolt</span></div>
+            <h3>Blazing local speed</h3>
+            <p>Your site loads from right inside your business. Customers feel the difference before they can name it.</p>
+          </article>
+          <article class="prop">
+            <div class="prop-icon"><span class="material-symbols-outlined">power</span></div>
+            <h3>Plug-and-play</h3>
+            <p>Pre-configured tunnels and a WordPress stack. If you can plug in a lamp, you can run Rifts.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>From box to live WordPress site.</h2>
+          <p>Three steps, about thirty minutes — most of which is waiting for the migration plugin to finish.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">01</div>
+            <h3>Unbox &amp; power on.</h3>
+            <p>Rifts auto-connects through Cloudflare Tunnel. No port-forwarding, no IT team, no carrier-grade NAT to fight.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">02</div>
+            <h3>Migrate WordPress.</h3>
+            <p>Use a recommended migration plugin or let us move your current site for you. Detailed instructions ship with every unit.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">03</div>
+            <h3>Relax &amp; grow.</h3>
+            <p>Visitors enjoy fast load times; you enjoy zero recurring hosting costs. The hardware pays itself back in months.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="calc" class="calc-shell">
+        <div class="section-head">
+          <span class="eyebrow">Calculator</span>
+          <h2>Are you overpaying for hosting?</h2>
+          <p>Tell us about your site and we&apos;ll compare your current cost to what you actually need.</p>
+        </div>
+
+        <div class="calc-card">
+          <form id="hostingCalculator" class="calc-form" novalidate>
+            <div class="calc-field full">
+              <label for="siteType">Site type</label>
+              <select id="siteType" name="type" required>
+                <option value="">Select your site type</option>
+              </select>
+              <small class="field-error" data-error-for="type"></small>
+            </div>
+
+            <div class="calc-field full">
+              <label for="visitorsRange">Monthly visitors <span class="range-display" id="visitorLabel">10k</span></label>
+              <input type="range" id="visitorsRange" class="slider" min="0" max="100" step="1" value="50" />
+              <div class="range-meta">
+                <span>0</span><span>10k (avg)</span><span>1M</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label for="costNow">Current hosting cost <span class="range-display" id="costLabel">$0/mo</span></label>
+              <span class="currency">
+                <span class="currency-prefix">$</span>
+                <input type="text" id="costNow" name="costNow" inputmode="decimal" placeholder="29" />
+              </span>
+              <small class="field-error" data-error-for="costNow"></small>
+            </div>
+
+            <div class="calc-field">
+              <label for="websiteUrl">Website URL</label>
+              <input type="url" id="websiteUrl" placeholder="https://yourwebsite.com" />
+              <small class="field-error" data-error-for="websiteUrl"></small>
+            </div>
+
+            <div class="calc-field">
+              <label for="leadName">Name</label>
+              <input type="text" id="leadName" placeholder="Jane Doe" />
+              <small class="field-error" data-error-for="name"></small>
+            </div>
+
+            <div class="calc-field">
+              <label for="leadEmail">Email</label>
+              <input type="email" id="leadEmail" placeholder="jane@studio.com" />
+              <small class="field-error" data-error-for="email"></small>
+            </div>
+
+            <div class="calc-field full" id="gdprRow" hidden>
+              <label class="check-row">
+                <input type="checkbox" id="gdprConsent" class="custom-checkbox" />
+                <span>I consent to receiving emails about hosting optimization tips.</span>
+              </label>
+            </div>
+
+            <div class="calc-field full">
+              <label class="check-row">
+                <input type="checkbox" id="hasCurrentSpecs" class="custom-checkbox" />
+                <span>I know my current plan specifications</span>
+              </label>
+            </div>
+
+            <div class="spec-grid full" id="specFields" hidden>
+              <div class="calc-field">
+                <label for="currentVCPU">vCPU</label>
+                <input type="text" id="currentVCPU" inputmode="decimal" placeholder="2" />
+                <small class="field-error" data-error-for="vCPU"></small>
+              </div>
+              <div class="calc-field">
+                <label for="currentRAM">RAM (GB)</label>
+                <input type="text" id="currentRAM" inputmode="decimal" placeholder="4" />
+                <small class="field-error" data-error-for="RAM"></small>
+              </div>
+              <div class="calc-field">
+                <label for="currentSSD">SSD (GB)</label>
+                <input type="text" id="currentSSD" inputmode="decimal" placeholder="80" />
+                <small class="field-error" data-error-for="SSD"></small>
+              </div>
+            </div>
+          </form>
+
+          <div class="analyze-row">
+            <span class="probe-status" id="probeStatus" hidden>Running quick site test</span>
+            <button class="btn-primary" id="analyzeButton" form="hostingCalculator" type="submit">Analyze my hosting <span class="arrow">→</span></button>
+          </div>
+
+          <section class="results" id="results" hidden aria-live="polite">
+            <div class="result-headline" id="resultHeadline"></div>
+            <div class="spec-table-wrap">
+              <h2>Recommended specifications</h2>
+              <table>
+                <thead>
+                  <tr><th></th><th>Recommended</th><th>Your plan</th></tr>
+                </thead>
+                <tbody id="specRows"></tbody>
+              </table>
+            </div>
+            <div class="plans-wrap">
+              <h2>Available plans</h2>
+              <div class="plans-grid" id="plansGrid"></div>
+              <div class="plans-pagination" id="plansPagination" hidden>
+                <button type="button" data-page-prev>← Previous</button>
+                <span data-page-info>1 / 1</span>
+                <button type="button" data-page-next>Next →</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Common questions, honest answers.</h2>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span>How much does the Mark 1 cost?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Pricing is available on our call. The Mark 1 is made-to-order and customized to each business&apos;s hosting requirements, so pricing varies.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span>How do I migrate my site?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>You can migrate your site using a WordPress migration plugin; we provide in-depth instructions post-purchase. We can also handle migration for a fee.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span>Is support available?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes — we are very responsive to support requests via email and text. If you ever have a problem, you can reach out.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span>What if I outgrow my Mark 1?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>While it is highly unlikely you will outgrow a Mark 1, we offer complimentary migration to a traditional cloud provider. You can also purchase a second Mark 1 and load-balance traffic.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-shell">
+        <div class="cta-panel">
+          <div>
+            <p>Ready to keep your hosting money?</p>
+            <h2>Schedule a free consultation.</h2>
+          </div>
+          <a class="btn-primary" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">Book a Call <span class="arrow">→</span></a>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2>Or write to us directly.</h2>
+        </div>
+        <div class="calc-card contact-card">
+          <form id="contactForm" class="calc-form">
+            <div class="calc-field full">
+              <label for="contactEmail">Your email</label>
+              <input type="email" id="contactEmail" placeholder="you@studio.com" required />
+            </div>
+            <div class="calc-field full">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" rows="6" placeholder="Tell us about your sites…" required></textarea>
+            </div>
+          </form>
+          <div class="analyze-row">
+            <p class="contact-status" id="contactStatus"></p>
+            <button class="btn-primary" form="contactForm" type="submit">Send message <span class="arrow">→</span></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-card">
+        <div class="col">
+          <div class="brand-foot">Rifts</div>
+          <p>Own your hosting. Built for WordPress businesses who&apos;d rather buy hardware than rent the cloud.</p>
+          <p>© 2026 Rifts.cloud · <a href="mailto:hello@rifts.cloud">hello@rifts.cloud</a></p>
+        </div>
+        <div class="col">
+          <h4>Editions</h4>
+          <ul>
+            <li><a href="/1">01 / Editorial</a></li>
+            <li><a href="/2">02 / Spec Sheet</a></li>
+            <li><a href="/3">03 / Soft</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">Book a call</a></li>
+            <li><a href="mailto:hello@rifts.cloud">hello@rifts.cloud</a></li>
+            <li><a href="#contact">Contact form</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js?v=rifts-full-2"></script>
+  </body>
+</html>

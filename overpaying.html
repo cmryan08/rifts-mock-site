@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Are You Overpaying for WordPress Hosting? - Rifts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body data-page="overpaying">
+    <header class="site-nav">
+      <a class="brand" href="./index.html" aria-label="Rifts home">
+        <img src="./assets/riftstextlogo.png" alt="Rifts" />
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="./contact.html">Contact</a>
+        <a href="./index.html">Home</a>
+        <a class="is-active" href="./overpaying.html">Overpaying?</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">
+        Book a Call
+      </a>
+    </header>
+
+    <main>
+      <section class="calculator-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Hosting calculator</p>
+          <h1>Are You Overpaying for<br />WordPress Hosting?</h1>
+          <p class="lede">Get a free estimate of your ideal hosting specs and potential savings.</p>
+        </div>
+
+        <form class="calculator-card" id="hostingCalculator" novalidate>
+          <div class="form-grid">
+            <label class="field full">
+              <span>Site Type</span>
+              <select name="type" id="siteType" required>
+                <option value="">Select your site type</option>
+              </select>
+              <small class="field-error" data-error-for="type"></small>
+            </label>
+
+            <label class="field full">
+              <span>Monthly Visitors (<strong id="visitorLabel">10k</strong>)</span>
+              <input class="slider" type="range" id="visitorsRange" min="0" max="100" step="1" value="50" />
+              <div class="range-meta">
+                <span>0</span>
+                <span class="average-marker">Average</span>
+                <span>1M</span>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Current Hosting Cost (<strong id="costLabel">$0/mo</strong>)</span>
+              <span class="currency-field">
+                <span>$</span>
+                <input type="text" inputmode="decimal" name="costNow" id="costNow" placeholder="Enter monthly cost" required />
+              </span>
+              <small class="field-error" data-error-for="costNow"></small>
+            </label>
+
+            <label class="field">
+              <span>Website URL</span>
+              <input type="url" name="websiteUrl" id="websiteUrl" placeholder="https://yourwebsite.com" required />
+              <small class="field-error" data-error-for="websiteUrl"></small>
+            </label>
+
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="name" id="leadName" placeholder="Your name" required />
+              <small class="field-error" data-error-for="name"></small>
+            </label>
+
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" id="leadEmail" placeholder="your@email.com" required />
+              <small class="field-error" data-error-for="email"></small>
+            </label>
+
+            <label class="check-row full" id="gdprRow" hidden>
+              <input class="custom-checkbox" type="checkbox" id="gdprConsent" />
+              <span>I consent to receiving emails about hosting optimization tips</span>
+            </label>
+
+            <label class="check-row full">
+              <input class="custom-checkbox" type="checkbox" id="hasCurrentSpecs" />
+              <span>I know my current plan specifications</span>
+            </label>
+
+            <div class="spec-grid full" id="specFields" hidden>
+              <label class="field">
+                <span>vCPU</span>
+                <input type="text" inputmode="decimal" id="currentVCPU" />
+                <small class="field-error" data-error-for="vCPU"></small>
+              </label>
+              <label class="field">
+                <span>RAM (GB)</span>
+                <input type="text" inputmode="decimal" id="currentRAM" />
+                <small class="field-error" data-error-for="RAM"></small>
+              </label>
+              <label class="field">
+                <span>SSD (GB)</span>
+                <input type="text" inputmode="decimal" id="currentSSD" />
+                <small class="field-error" data-error-for="SSD"></small>
+              </label>
+            </div>
+          </div>
+
+          <div class="analyze-row">
+            <button class="primary-action" type="submit" id="analyzeButton">Analyze My Hosting</button>
+            <span class="probe-status" id="probeStatus" hidden>Running quick site test...</span>
+          </div>
+        </form>
+
+        <section class="results" id="results" hidden aria-live="polite">
+          <div class="result-headline" id="resultHeadline"></div>
+          <div class="spec-table-wrap">
+            <h2>Recommended Specifications</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Recommended</th>
+                  <th>Your Plan</th>
+                </tr>
+              </thead>
+              <tbody id="specRows"></tbody>
+            </table>
+          </div>
+          <div class="plans-wrap">
+            <h2>Available Plans</h2>
+            <div class="plans-grid" id="plansGrid"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2025 Rifts Cloud</span>
+      <a href="mailto:hello@rifts.cloud">hello@rifts.cloud</a>
+      <a href="./contact.html">Contact</a>
+    </footer>
+
+    <script type="module" src="./app.js?v=rifts-full-1"></script>
+  </body>
+</html>

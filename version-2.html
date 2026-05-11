@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rifts // Spec Sheet — Edition 02</title>
+    <meta name="description" content="Rifts Mark 1 technical datasheet. WordPress micro-server with Cloudflare Tunnel." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles-v2.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body data-page="home" data-variant="v2">
+    <div class="status-bar" role="status" aria-label="Document status">
+      <div class="seg">RIFTS // MARK_1 // SPEC SHEET</div>
+      <div class="seg">REV.2026.05.08 / BUILD 0241</div>
+      <div class="seg">UNIT.IN_STOCK <span class="blink"></span></div>
+    </div>
+
+    <header class="site-nav">
+      <div class="nav-inner">
+        <a class="brand" href="#top">
+          <span class="wordmark">RIFTS</span>
+          <span class="meta">UNIT 01</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#why">Properties</a>
+          <a href="#how">Phases</a>
+          <a href="#calc">Calc</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="nav-cta" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">Book Call</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-meta">
+          <span><strong>DOC.</strong> RIFTS-MK1-DS-001</span>
+          <span><strong>STATUS.</strong> RELEASED</span>
+          <span><strong>CLASS.</strong> EDGE COMPUTE / WEB</span>
+          <span><strong>UPDATED.</strong> 2026.05.08</span>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>
+              <span class="nl">Edge web hosting,</span>
+              <span class="nl underline">owned outright.</span>
+            </h1>
+            <p class="lede">
+              Rifts Mark 1 is a plug-and-play WordPress micro-server. It runs your sites on hardware
+              you own, exposed via Cloudflare Tunnel — no public IP, no port-forwarding, no monthly
+              cloud lease.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">Book Call</a>
+              <a class="btn-ghost" href="#calc">Run Calculator</a>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <div class="stat-label">Avg. boot time</div>
+                <div class="stat-val">~ 22 s</div>
+              </div>
+              <div>
+                <div class="stat-label">Tunnel latency</div>
+                <div class="stat-val">&lt; 30 ms</div>
+              </div>
+              <div>
+                <div class="stat-label">Recurring fees</div>
+                <div class="stat-val">$ 0.00</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-figure bracket-box">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+
+            <div class="callout tl">
+              <span>01 / TUNNEL</span>
+              <strong>Cloudflare</strong>
+            </div>
+            <div class="callout tr">
+              <span>02 / I/O</span>
+              <strong>USB-C · HDMI · ETH</strong>
+            </div>
+            <div class="callout bl">
+              <span>03 / FORM</span>
+              <strong>115 × 90 × 32 mm</strong>
+            </div>
+            <div class="callout br">
+              <span>04 / NET</span>
+              <strong>Local LAN</strong>
+            </div>
+
+            <div class="fig-frame">
+              <div class="fig-rulers"></div>
+              <span class="fig-corner tl"></span><span class="fig-corner tr"></span>
+              <span class="fig-corner bl"></span><span class="fig-corner br"></span>
+              <canvas id="modelCanvas"></canvas>
+              <div class="model-status" id="modelStatus">LOADING.MODEL</div>
+            </div>
+
+            <div class="spec-sheet">
+              <div class="row">
+                <span class="label">CPU</span>
+                <span class="leader"></span>
+                <span class="value">ARM A76 · 4-CORE</span>
+              </div>
+              <div class="row">
+                <span class="label">RAM</span>
+                <span class="leader"></span>
+                <span class="value">≤ 16 GB LPDDR5</span>
+              </div>
+              <div class="row">
+                <span class="label">SSD</span>
+                <span class="leader"></span>
+                <span class="value">200 GB NVMe</span>
+              </div>
+              <div class="row">
+                <span class="label">POWER</span>
+                <span class="leader"></span>
+                <span class="value">5 V / 5 A USB-C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why">
+        <div class="section-head">
+          <span class="section-marker">§ 1.0 / PROPERTIES</span>
+          <h2>Why Mark 1.</h2>
+          <span class="section-aside">3 PROPS · CLASS A</span>
+        </div>
+
+        <div class="props">
+          <article class="prop bracket-box">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="prop-id">PROP.01 / OWNERSHIP</div>
+            <span class="material-symbols-outlined">savings</span>
+            <h3>True ownership</h3>
+            <p>Pay once. Keep it forever. End the cycle of monthly hosting fees.</p>
+            <div class="prop-data">
+              <div class="row"><span class="label">Term</span><span class="value">Perpetual</span></div>
+              <div class="row"><span class="label">Fee/mo</span><span class="value">$0.00</span></div>
+              <div class="row"><span class="label">Resale</span><span class="value">Yes</span></div>
+            </div>
+          </article>
+
+          <article class="prop bracket-box">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="prop-id">PROP.02 / SPEED</div>
+            <span class="material-symbols-outlined">electric_bolt</span>
+            <h3>Local performance</h3>
+            <p>Sites load from inside the building. Customers feel the difference.</p>
+            <div class="prop-data">
+              <div class="row"><span class="label">LAN.lat</span><span class="value">&lt; 1 ms</span></div>
+              <div class="row"><span class="label">Tunnel</span><span class="value">~ 30 ms</span></div>
+              <div class="row"><span class="label">TTFB.med</span><span class="value">~ 80 ms</span></div>
+            </div>
+          </article>
+
+          <article class="prop bracket-box">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="prop-id">PROP.03 / SETUP</div>
+            <span class="material-symbols-outlined">power</span>
+            <h3>Plug-and-play</h3>
+            <p>Pre-configured tunnels &amp; WordPress. If you can plug in a lamp, you can run Rifts.</p>
+            <div class="prop-data">
+              <div class="row"><span class="label">Boot.t</span><span class="value">~ 22 s</span></div>
+              <div class="row"><span class="label">Setup</span><span class="value">5 min</span></div>
+              <div class="row"><span class="label">Tools</span><span class="value">None</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="how">
+        <div class="section-head">
+          <span class="section-marker">§ 2.0 / OPERATIONAL PHASES</span>
+          <h2>From box to live site.</h2>
+          <span class="section-aside">3 PHASES</span>
+        </div>
+
+        <div class="phases">
+          <article class="phase bracket-box">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="phase-id"><span>PHASE 01</span><span>~ 5 MIN</span></div>
+            <h3>Unbox &amp; power on.</h3>
+            <p>Rifts auto-connects through Cloudflare Tunnel. No port-forwarding, no IT team, no carrier-grade NAT to fight.</p>
+          </article>
+
+          <article class="phase bracket-box">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="phase-id"><span>PHASE 02</span><span>~ 30 MIN</span></div>
+            <h3>Migrate WordPress.</h3>
+            <p>Use a recommended migration plugin or let us move your current site for you. Detailed instructions ship with every unit.</p>
+          </article>
+
+          <article class="phase bracket-box">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="phase-id"><span>PHASE 03</span><span>∞</span></div>
+            <h3>Relax &amp; grow.</h3>
+            <p>Visitors enjoy fast load times; you enjoy zero recurring hosting costs. The hardware pays itself back in months, not years.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="calc" class="calc-shell">
+        <div class="section-head">
+          <span class="section-marker">§ 3.0 / COST CALCULATOR</span>
+          <h2>Are you overpaying?</h2>
+          <span class="section-aside">RUN.LOCAL</span>
+        </div>
+
+        <form id="hostingCalculator" class="calc-form" novalidate>
+          <div class="calc-field full">
+            <label>Site Type <span class="field-id">FIELD.01</span></label>
+            <select id="siteType" name="type" required>
+              <option value="">— Select —</option>
+            </select>
+            <small class="field-error" data-error-for="type"></small>
+          </div>
+
+          <div class="calc-field full">
+            <label>Monthly Visitors <span class="range-display" id="visitorLabel">10k</span></label>
+            <input type="range" id="visitorsRange" class="slider" min="0" max="100" step="1" value="50" />
+            <div class="range-meta">
+              <span>0</span><span>10k (avg)</span><span>1M</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label>Current Hosting Cost <span class="range-display" id="costLabel">$0/mo</span></label>
+            <span class="currency">
+              <span class="currency-prefix">$</span>
+              <input type="text" id="costNow" name="costNow" inputmode="decimal" placeholder="29" />
+            </span>
+            <small class="field-error" data-error-for="costNow"></small>
+          </div>
+
+          <div class="calc-field">
+            <label>Website URL <span class="field-id">FIELD.04</span></label>
+            <input type="url" id="websiteUrl" placeholder="https://yourwebsite.com" />
+            <small class="field-error" data-error-for="websiteUrl"></small>
+          </div>
+
+          <div class="calc-field">
+            <label>Name <span class="field-id">FIELD.05</span></label>
+            <input type="text" id="leadName" placeholder="Jane Doe" />
+            <small class="field-error" data-error-for="name"></small>
+          </div>
+
+          <div class="calc-field">
+            <label>Email <span class="field-id">FIELD.06</span></label>
+            <input type="email" id="leadEmail" placeholder="jane@studio.com" />
+            <small class="field-error" data-error-for="email"></small>
+          </div>
+
+          <div class="calc-field full" id="gdprRow" hidden>
+            <label class="check-row">
+              <input type="checkbox" id="gdprConsent" class="custom-checkbox" />
+              <span>Consent to receiving emails about hosting optimization tips</span>
+            </label>
+          </div>
+
+          <div class="calc-field full">
+            <label class="check-row">
+              <input type="checkbox" id="hasCurrentSpecs" class="custom-checkbox" />
+              <span>I know my current plan specifications</span>
+            </label>
+          </div>
+
+          <div class="spec-grid full" id="specFields" hidden>
+            <div class="calc-field">
+              <label>vCPU</label>
+              <input type="text" id="currentVCPU" inputmode="decimal" placeholder="2" />
+              <small class="field-error" data-error-for="vCPU"></small>
+            </div>
+            <div class="calc-field">
+              <label>RAM (GB)</label>
+              <input type="text" id="currentRAM" inputmode="decimal" placeholder="4" />
+              <small class="field-error" data-error-for="RAM"></small>
+            </div>
+            <div class="calc-field">
+              <label>SSD (GB)</label>
+              <input type="text" id="currentSSD" inputmode="decimal" placeholder="80" />
+              <small class="field-error" data-error-for="SSD"></small>
+            </div>
+          </div>
+        </form>
+
+        <div class="analyze-row">
+          <span class="probe-status" id="probeStatus" hidden>Running site probe</span>
+          <button class="btn-primary" id="analyzeButton" form="hostingCalculator" type="submit">Analyze Hosting</button>
+        </div>
+
+        <section class="results" id="results" hidden aria-live="polite">
+          <div class="result-headline" id="resultHeadline"></div>
+          <div class="spec-table-wrap">
+            <h2>Recommended specifications</h2>
+            <table>
+              <thead>
+                <tr><th></th><th>Recommended</th><th>Your Plan</th></tr>
+              </thead>
+              <tbody id="specRows"></tbody>
+            </table>
+          </div>
+          <div class="plans-wrap">
+            <h2>Available plans</h2>
+            <div class="plans-grid" id="plansGrid"></div>
+            <div class="plans-pagination" id="plansPagination" hidden>
+              <button type="button" data-page-prev>← PREV</button>
+              <span data-page-info>1 / 1</span>
+              <button type="button" data-page-next>NEXT →</button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="faq">
+        <div class="section-head">
+          <span class="section-marker">§ 4.0 / FAQ</span>
+          <h2>Common questions.</h2>
+          <span class="section-aside">4 ENTRIES</span>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span class="q-id">Q.01</span>
+              <span class="q-text">How much does the Mark 1 cost?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <span class="a-id">A.01</span>
+              <p class="a-body">Pricing is available on our call. The Mark 1 is made-to-order and customized to each business&apos;s hosting requirements.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span class="q-id">Q.02</span>
+              <span class="q-text">How do I migrate my site?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <span class="a-id">A.02</span>
+              <p class="a-body">Use a WordPress migration plugin; we provide in-depth instructions post-purchase. We can also handle migration for a fee.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span class="q-id">Q.03</span>
+              <span class="q-text">Is support available?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <span class="a-id">A.03</span>
+              <p class="a-body">Yes — we are very responsive to support requests via email and text.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span class="q-id">Q.04</span>
+              <span class="q-text">What if I outgrow my Mark 1?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <span class="a-id">A.04</span>
+              <p class="a-body">We offer complimentary migration to traditional cloud providers, or you can purchase a second Mark 1 and load-balance.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-shell">
+        <div class="cta-panel">
+          <div>
+            <p>Ready to keep your hosting money?</p>
+            <h2>Schedule a free consultation.</h2>
+          </div>
+          <a class="btn-primary" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">Book Call</a>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-head">
+          <span class="section-marker">§ 5.0 / CONTACT</span>
+          <h2>Direct transmission.</h2>
+          <span class="section-aside">END.OF.DOC</span>
+        </div>
+        <div class="contact-shell">
+          <form id="contactForm" class="calc-form">
+            <div class="calc-field full">
+              <label>Email <span class="field-id">REPLY-TO</span></label>
+              <input type="email" id="contactEmail" placeholder="you@studio.com" required />
+            </div>
+            <div class="calc-field full">
+              <label>Message <span class="field-id">PAYLOAD</span></label>
+              <textarea id="contactMessage" rows="6" placeholder="Tell us about your sites…" required></textarea>
+            </div>
+          </form>
+          <div class="analyze-row">
+            <p class="contact-status" id="contactStatus"></p>
+            <button class="btn-primary" form="contactForm" type="submit">Transmit</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="col">
+        <h4>RIFTS // 2026</h4>
+        <ul>
+          <li>© 2026 Rifts.cloud</li>
+          <li>All rights reserved</li>
+          <li>Made in California</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>EDITIONS</h4>
+        <ul>
+          <li><a href="/1">01 / Editorial</a></li>
+          <li><a href="/2">02 / Spec Sheet</a></li>
+          <li><a href="/3">03 / Soft</a></li>
+        </ul>
+      </div>
+      <div class="build-tag">
+        <span class="badge-build">BUILD 0241</span>
+        <span>END OF DOCUMENT</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js?v=rifts-full-2"></script>
+  </body>
+</html>

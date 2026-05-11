@@ -1,0 +1,4 @@
+node_modules/
+submissions.jsonl
+.DS_Store
+*.log

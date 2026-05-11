@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rifts - The Best Upsell for WP Dev</title>
+    <meta
+      name="description"
+      content="Professional server solutions for WordPress developers and businesses. Get better performance for less money."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body data-page="home">
+    <header class="site-nav">
+      <a class="brand" href="./index.html" aria-label="Rifts home">
+        <img src="./assets/riftstextlogo.png" alt="Rifts" />
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="./contact.html">Contact</a>
+        <a class="is-active" href="./index.html">Home</a>
+        <a href="./overpaying.html">Overpaying?</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">
+        Book a Call
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="hero-shell hero-home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Rifts Mark 1</p>
+          <h1 id="hero-title">
+            <span class="accent-text">Own Your Website.</span>
+            <span>Stop Renting Hosting.</span>
+          </h1>
+          <p class="lede">
+            A plug-and-play micro server for WordPress businesses that want local speed, Cloudflare tunneling,
+            and one-time ownership instead of another monthly hosting bill.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
+            <a class="text-action" href="./overpaying.html">Check My Hosting Costs</a>
+          </div>
+        </div>
+
+        <div class="model-stage" aria-label="3D model of the Rifts Mark 1 enclosure">
+          <canvas id="modelCanvas"></canvas>
+          <div class="metric-pill">Cloudflare Tunnel ready</div>
+          <div class="metric-line line-left"></div>
+          <div class="metric-note note-left">
+            <strong>Local hardware</strong>
+            <span>Sites run from a box your client owns.</span>
+          </div>
+          <div class="metric-line line-right"></div>
+          <div class="metric-note note-right">
+            <strong>No hosting lease</strong>
+            <span>Positioned as a one-time infrastructure purchase.</span>
+          </div>
+          <div class="model-status" id="modelStatus">Loading 3D model</div>
+        </div>
+      </section>
+
+      <section class="section" id="why">
+        <div class="section-heading">
+          <p class="eyebrow">Why Rifts?</p>
+          <h2>Why <span class="accent-text">Rifts Mark 1?</span></h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="material-symbols-outlined">savings</span>
+            <h3>True Ownership</h3>
+            <p>Pay once, keep it forever. End the cycle of monthly hosting fees.</p>
+          </article>
+          <article class="feature-card">
+            <span class="material-symbols-outlined">electric_bolt</span>
+            <h3>Blazing Local Speed</h3>
+            <p>Your site loads from right inside your business. Customers feel the difference.</p>
+          </article>
+          <article class="feature-card">
+            <span class="material-symbols-outlined">power</span>
+            <h3>Plug-and-Play Simplicity</h3>
+            <p>Pre-configured tunnels and WordPress stack. If you can plug in a lamp, you can run Rifts.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section" id="how">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2>From box to live WordPress site.</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span>1</span>
+            <div>
+              <h3>Unbox & Power On</h3>
+              <p>Rifts auto-connects through Cloudflare Tunnel. No port-forwarding, no IT team.</p>
+            </div>
+          </article>
+          <article>
+            <span>2</span>
+            <div>
+              <h3>Launch or Migrate WordPress</h3>
+              <p>Use a recommended migration plugin or let us move your current site for you.</p>
+            </div>
+          </article>
+          <article>
+            <span>3</span>
+            <div>
+              <h3>Relax & Grow</h3>
+              <p>Visitors enjoy fast load times; you enjoy zero recurring hosting costs.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span>How much does the Mark 1 cost?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer">
+              Pricing is available on our call. The Mark 1 is made-to-order and customized to each business's hosting requirements, so pricing varies.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span>How do I migrate my site?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer">
+              You can migrate your site using a WordPress migration plugin; we provide in-depth instructions post-purchase. We can also handle migration for a fee.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span>Is support available?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer">
+              Yes, we are very responsive to support requests via email and text. If you ever have a problem, you can reach out.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" data-faq>
+              <span>What if I outgrow my Mark 1?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer">
+              While it is highly unlikely you will outgrow a Mark 1, we offer complimentary migration services to a traditional cloud provider. You can also purchase a second Mark 1 and load-balance traffic.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section cta-panel">
+        <div>
+          <p class="eyebrow">Free calculator</p>
+          <h2>Are you overpaying for hosting?</h2>
+          <p>Use the Rifts calculator to see if you could save money by switching to a better plan or owning the hardware.</p>
+        </div>
+        <a class="primary-action" href="./overpaying.html">Check My Hosting Costs</a>
+      </section>
+
+      <section class="section final-cta" id="book">
+        <div>
+          <h2>Ready to keep your hosting money?</h2>
+          <p>Schedule a free, no-pressure call and see the power of Rifts.</p>
+          <a class="primary-action" href="https://calendly.com/christopher-_-ryan/free-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2025 Rifts Cloud</span>
+      <a href="mailto:hello@rifts.cloud">hello@rifts.cloud</a>
+      <a href="#">Privacy</a>
+      <a href="#">For Agencies</a>
+      <a href="#">About</a>
+    </footer>
+
+    <script type="module" src="./app.js?v=rifts-full-1"></script>
+  </body>
+</html>
