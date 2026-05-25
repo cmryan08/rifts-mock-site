@@ -1,9 +1,10 @@
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { appendFile } from "node:fs/promises";
 import { createServer } from "node:http";
-import { extname, join, normalize } from "node:path";
+import { extname, join, normalize, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = process.cwd();
+const root = dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 5188);
 
 const types = {
@@ -110,23 +111,6 @@ createServer(async (request, response) => {
   if (request.method === "GET" && url.pathname === "/api/probe") {
     await handleProbe(url, response);
     return;
-  }
-
-  // Variant routes: /1 /2 /3 → version-N.html (canonical, no trailing slash)
-  const trailingMatch = url.pathname.match(/^\/([123])\/$/);
-  if (request.method === "GET" && trailingMatch) {
-    response.writeHead(301, { Location: `/${trailingMatch[1]}` });
-    response.end();
-    return;
-  }
-  const variantMatch = url.pathname.match(/^\/([123])$/);
-  if (request.method === "GET" && variantMatch) {
-    const variantPath = join(root, `version-${variantMatch[1]}.html`);
-    if (existsSync(variantPath)) {
-      response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-      createReadStream(variantPath).pipe(response);
-      return;
-    }
   }
 
   const requested = normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[/\\])+/, "");
